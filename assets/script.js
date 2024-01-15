@@ -65,7 +65,8 @@ function updateSlide() {
 
 // ajouter les eventlisteners à des flèches 
 
-// en utilisant l'opérateur modulo
+// 1. en utilisant l'opérateur modulo
+
 
 // ArrowLeft.addEventListener('click', () => {
 //     currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
@@ -80,7 +81,7 @@ function updateSlide() {
 
 
 
-// en utilisant des conditions
+// 2. en utilisant des conditions
 
 ArrowLeft.addEventListener('click', () => {
     currentSlideIndex--;
