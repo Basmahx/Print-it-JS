@@ -54,7 +54,7 @@ const dots = DotsSlider.querySelectorAll(".dot");
 // Function to update the image, tagline, and dots based on the current slide index
 
 function updateSlide() {
-    ImagesSlider.src = src="./assets/images/slideshow/"+ slides[currentSlideIndex].image;
+    ImagesSlider.src ="./assets/images/slideshow/"+ slides[currentSlideIndex].image;
     TaglineElement.innerHTML = slides[currentSlideIndex].tagLine;
 
 	
@@ -65,17 +65,38 @@ function updateSlide() {
 
 // ajouter les eventlisteners à des flèches 
 
+// en utilisant l'opérateur modulo
+
+// ArrowLeft.addEventListener('click', () => {
+//     currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+//     updateSlide();
+// });
+
+
+// ArrowRight.addEventListener('click', () => {
+//     currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+//     updateSlide();
+// });
+
+
+
+// en utilisant des conditions
+
 ArrowLeft.addEventListener('click', () => {
-    currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+    currentSlideIndex--;
+    if (currentSlideIndex < 0) {
+        currentSlideIndex = slides.length - 1;
+    }
     updateSlide();
 });
-
 
 ArrowRight.addEventListener('click', () => {
-    currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+    currentSlideIndex++;
+    if (currentSlideIndex >= slides.length) {
+        currentSlideIndex = 0;
+    }
     updateSlide();
 });
-
 
 updateSlide();
 
