@@ -40,11 +40,12 @@ let currentSlideIndex = 0;
 // ajouter les 4 dots  
 
 for (let i = 0; i < slides.length; i++) {
-    const newDot = document.createElement("div");
+    const newDot = document.createElement("div"); // creation des éléments
     newDot.classList.add("dot");
-    DotsSlider.appendChild(newDot); // pour liéé l’élément créé à la page html
+    DotsSlider.appendChild(newDot); // add to the container 
 }
 
+// Récupération des bullets point créés
 const dots = DotsSlider.querySelectorAll(".dot");
 
 
@@ -54,34 +55,18 @@ const dots = DotsSlider.querySelectorAll(".dot");
 // Function to update the image, tagline, and dots based on the current slide index
 
 function updateSlide() {
-    ImagesSlider.src ="./assets/images/slideshow/"+ slides[currentSlideIndex].image;
-    TaglineElement.innerHTML = slides[currentSlideIndex].tagLine;
+    ImagesSlider.src ="./assets/images/slideshow/"+ slides[currentSlideIndex].image;  // Met à jour l'attribut src de l'élément ImagesSlider avec le chemin de l'image de la diapositive actuelle
+    TaglineElement.innerHTML = slides[currentSlideIndex].tagLine;  // Met à jour le contenu HTML de l'élément TaglineElement avec le slogan de la diapositive actuelle
 
 	
-    dots.forEach(dot => dot.classList.remove("dot_selected"));
-    dots[currentSlideIndex].classList.add("dot_selected");
-}
+    dots.forEach(dot => dot.classList.remove("dot_selected")); // Retire la classe "dot_selected" de tous les points
+    dots[currentSlideIndex].classList.add("dot_selected"); // Ajoute la classe "dot_selected" à l'élément de l'array dots correspondant à la diapositive actuelle
+};
 
 
-// ajouter les eventlisteners à des flèches 
+// ajouter les eventlisteners à des flèches et defilement circulaire des diapositives au click
+// en utilisant des conditions
 
-// 1. en utilisant l'opérateur modulo
-
-
-// ArrowLeft.addEventListener('click', () => {
-//     currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
-//     updateSlide();
-// });
-
-
-// ArrowRight.addEventListener('click', () => {
-//     currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-//     updateSlide();
-// });
-
-
-
-// 2. en utilisant des conditions
 
 ArrowLeft.addEventListener('click', () => {
     currentSlideIndex--;
